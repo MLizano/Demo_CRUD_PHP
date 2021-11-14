@@ -4,13 +4,16 @@ include_once 'conexion.php';
 $objeto = new Conexion();
 $conexion = $objeto->Conectar();
 
+// print_r($conexion);
+
 // Recepción de los datos enviados mediante POST desde el JS   
 $usuario = (isset($_POST['usuario'])) ? $_POST['usuario'] : '';
 $password = (isset($_POST['password'])) ? $_POST['password'] : '';
 
-$pass = md5($password);
+// $pass = md5($password);   //criptografia con 128 bits / 32 valores exadecimales
+// insert into usuarios (usuario, password) values ('admin', MD5('admin'));
 
-$consulta = "SELECT usuarios.idRol AS idRol, roles.descripcion AS rol FROM usuarios JOIN roles ON usuarios.idRol = roles.id WHERE usuario='$usuario' AND password='$pass' ";	
+$consulta = "SELECT usuarios.idRol AS idRol, roles.descripcion AS rol FROM usuarios JOIN roles ON usuarios.idRol = roles.id WHERE usuario='$usuario' AND password='$password' ";	
 $resultado = $conexion->prepare($consulta);
 $resultado->execute(); 
 

@@ -10,7 +10,7 @@
 
    <!-- Bootstrap CSS -->
    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" >
-   <link rel="stylesheet" href="estilos.css" >
+   <link rel="stylesheet" href="css/estilos.css" >
 
    <link rel="stylesheet" href="plugins/sweetalert2.min.css" >
  
@@ -19,12 +19,12 @@
 <body>
    
    <div id="login">
-      <h3 class="text-center text-white display-4">Login con PHP</h3>
 
       <div class="container">                        
          <div id="login-row" class="row justify-content-center align-items-center">
                <div id="login-column" class="col-md-6">
                   <div id="login-box" class="col-md-12  bg-light text-dark">
+
                      <form id="formLogin" class="form" action="" method="post">
                            <h3 class="text-center text-dark">Iniciar Sesión</h3>
                            <div class="form-group">
@@ -35,10 +35,11 @@
                               <label for="password" class="text-dark">Password</label><br>
                               <input type="password" name="password" id="password" class="form-control">
                            </div>
-                           <div class="form-group text-center">                                
-                              <input type="submit" name="submit" class="btn btn-dark btn-lg btn-block" value="Conectar">
+                           <div class="form-group text-center" style="margin-top: 20px;">                                
+                              <input type="submit" name="submit" class="btn btn-primary btn-lg btn-block" value="Conectar">
                            </div>                            
                      </form>
+
                   </div>
                </div>
          </div>
@@ -54,8 +55,9 @@
 <script src="popper/popper.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
 
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="plugins/sweetalert2.all.min.js"></script>
-<script src="codigo.js"></script>
+<script src="js/codigo.js"></script>
 
 </body>
 </html>
