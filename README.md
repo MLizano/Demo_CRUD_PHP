@@ -1,9 +1,13 @@
 # Demo_CRUD_PHP
 
-Para la interfaz se utilizó:
--Bootstrap
--Jquery
--Sweetalert
+Para este proyecto se utilizo:
 
-Para la lógica se utilizó PHP 8
-Base de datos MySQL
+-Apache 2.4
+-Bootstrap 5
+-Jquery 3.5
+-Sweetalert 2
+-Javascript
+-Html 5
+-CSS 3
+-DB MySQL 8
+-PHP 8

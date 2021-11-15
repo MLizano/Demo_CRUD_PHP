@@ -7,25 +7,10 @@ if ($_SESSION["s_usuario"] === null){
 }
 
 ?>
-<!doctype html>
-<html lang="en">
 
-<head>
-    <link rel="shortcut icon" href="#" />
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" >
-    <link rel="stylesheet" href="../css/estilos.css" >
-
-    <link rel="stylesheet" href="../plugins/sweetalert2.min.css" >
-    
-    
-    <title>Login</title>
-</head>
-<body>
+<?php
+include "top_part.php"
+?>
 
 <div class="container">
     <div class="row">
@@ -45,17 +30,8 @@ if ($_SESSION["s_usuario"] === null){
         </div>
         </div>
     </div>
-</div>    
+</div>      
 
-<!-- /////////////////////////////////////////////////////////// -->
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
-<script src="../jquery/jquery-3.6.0.min.js"></script>
-<script src="../popper/popper.min.js"></script>
-<script src="../bootstrap/js/bootstrap.min.js"></script>
-
-<script src="../plugins/sweetalert2.all.min.js"></script>
-<script src="../js/codigo.js"></script>
-</body>
-</html>
+<?php
+include_once "bottom_part.php"
+?>

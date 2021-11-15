@@ -10,7 +10,7 @@ $conexion = $objeto->Conectar();
 $usuario = (isset($_POST['usuario'])) ? $_POST['usuario'] : '';
 $password = (isset($_POST['password'])) ? $_POST['password'] : '';
 
-// $pass = md5($password);   //criptografia con 128 bits / 32 valores exadecimales
+// $password = md5($password);   //criptografia con 128 bits / 32 valores exadecimales
 // insert into usuarios (usuario, password) values ('admin', MD5('admin'));
 
 $consulta = "SELECT usuarios.idRol AS idRol, roles.descripcion AS rol FROM usuarios JOIN roles ON usuarios.idRol = roles.id WHERE usuario='$usuario' AND password='$password' ";	
