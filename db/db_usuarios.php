@@ -26,8 +26,13 @@ switch($opcion){
 
    //modificación ---------------------------------------------------
    case 2:
-      // $consulta = "UPDATE usuarios SET usuario='$usuario', idRol='$idRol', password='$password'  WHERE id='$id' ";
-      $consulta = "UPDATE usuarios SET usuario='$usuario', password='$password', idRol='$idRol'  WHERE id='$id' ";
+      if($idRol == 'Administrador' || $idRol == 1){
+         $rol = 1;
+      }else if($idRol == 'Colaborador' || $idRol == 2){
+         $rol = 2;
+      }
+
+      $consulta = "UPDATE usuarios SET usuario='$usuario', password='$password', idRol='$rol'  WHERE id='$id' ";
       $resultado = $conexion->prepare($consulta);
       $resultado->execute();
       

@@ -46,15 +46,14 @@ $(document).ready( function(){
       usuario = fila.find('td:eq(1)').text();
       password = fila.find('td:eq(2)').text();
       idRol = fila.find('td:eq(3)').text();
-      // idRol = parseInt(fila.find('td:eq(3)').text());
-      
-      $("#usuario").val(usuario);
-      $("#password").val(password);
-      $("#idRol").val(idRol);
       opcion = 2; //editar
 
       var data = [id, usuario, password, idRol, opcion];
       console.log(data);
+
+      $("#usuario").val(usuario);
+      $("#password").val(password);
+      $("#idRol").val(idRol);
 
       $(".modal-header").css("background-color", "#007bff");
       $(".modal-header").css("color", "white");
