@@ -14,7 +14,8 @@ $id = (isset($_POST['id'])) ? $_POST['id'] : '';
 
 switch($opcion){
    //creacion ---------------------------------------------------
-   case 1: 
+   case 1:
+
       $consulta = "INSERT INTO usuarios (usuario, password, idRol) VALUES('$usuario', '$password', '$idRol') ";
       $resultado = $conexion->prepare($consulta);
       $resultado->execute();

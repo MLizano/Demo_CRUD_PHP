@@ -31,11 +31,13 @@ $(document).ready( function(){
       $("#formUsuarios").trigger("reset");
       $(".modal-header").css("background-color", "#28a745");
       $(".modal-header").css("color", "white");
-      $(".modal-tittle").text("Nueva Persona");            
-      $("#modalCRUD").modal("show");        
+      $(".modal-tittle").text("Nueva Persona");
+      $("#modalCRUD").modal("show");
       id=null;
       opcion = 1; //crear
    });
+
+   
 
    var fila; //capturar la fila para editar o borrar el registro
 
@@ -90,34 +92,39 @@ $(document).ready( function(){
       e.preventDefault();    
       usuario = $.trim($("#usuario").val());
       password = $.trim($("#password").val());
-      idRol = $.trim($("#idRol").val());    
-      $.ajax({
-         url: "../db/db_usuarios.php",
-         type: "POST",
-         dataType: "json",
-         data: {id:id, usuario:usuario, password:password, idRol:idRol, opcion:opcion},
-         success: function(data){
-            
-            //para validar que los datos sean correctos / solo para asuntos de la practica
-            console.log(data);
-            id = data[0].id;            
-            usuario = data[0].usuario;
-            passwrod = data[0].passwrod;
-            idRol = data[0].idRol;
+      idRol = $.trim($("#idRol").val());
 
-            if(idRol == 1){
-               rol = 'Administrador';
-            }else{
-               rol = 'Colaborador';
-            }
-            
-            if(opcion == 1){
-               tablaUsuarios.row.add([id,usuario,rol]).draw();
-            }else{
-               tablaUsuarios.row(fila).data([id,usuario,rol]).draw();
-            }
-         }        
-      });
+      if(password == ""){
+         return alert( "Por favor introduzca una contraseña!" );
+      }else{
+         $.ajax({
+            url: "../db/db_usuarios.php",
+            type: "POST",
+            dataType: "json",
+            data: {id:id, usuario:usuario, password:password, idRol:idRol, opcion:opcion},
+            success: function(data){
+               
+               //para validar que los datos sean correctos / solo para asuntos de la practica
+               console.log(data);
+               id = data[0].id;            
+               usuario = data[0].usuario;
+               passwrod = data[0].passwrod;
+               idRol = data[0].idRol;
+   
+               if(idRol == 1){
+                  rol = 'Administrador';
+               }else{
+                  rol = 'Colaborador';
+               }
+               
+               if(opcion == 1){
+                  tablaUsuarios.row.add([id,usuario,rol]).draw();
+               }else{
+                  tablaUsuarios.row(fila).data([id,usuario,rol]).draw();
+               }
+            }        
+         });
+      }
       $("#modalCRUD").modal("hide");      
    });
 

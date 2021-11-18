@@ -1,5 +1,18 @@
 
 <?php
+   session_start();
+
+   //Si nadie inció sesión vuelve a la pag de Login
+   if ($_SESSION["s_usuario"] === null){
+      header("Location: ../index.php");
+   }else{
+      if($_SESSION["s_idRol"]!=1){
+         header("Location: pag_colaborador.php");
+      }
+   }
+?>
+
+<?php
    include_once '../db/conexion.php';
    $objeto = new Conexion();
    $conexion = $objeto->Conectar();
@@ -10,83 +23,89 @@
    $data=$resultado->fetchAll(PDO::FETCH_ASSOC); 
 ?>
 
-<!DOCTYPE html>
+<?php
+include_once "top_part.php"
+?>
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Usuarios</title>
+   <title>Usuarios</title> -->
 
    <!-- Bootstrap CSS -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" >
-   <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css" >
-
+   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" >
+   <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css" > -->
+<!-- 
 </head>
-<body>
-   
-   <header>
-      <h3 class="text-center text-dark">Usuarios</h3>
-   </header>
+<body> -->
 
    <div class="container">
-      <div class="row">
-         <div class="col-lg-12" style="padding-bottom: 30px">
-            <button id="btnNuevo" type="button" class="btn btn-success" data-toggle="modal">Nuevo</button>  
+      <!------------------------ content ------------------------>
+      <header>
+         <h3 class="text-center text-dark">Usuarios</h3>
+      </header>
+
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-12" style="padding-bottom: 30px">
+               <button id="btnNuevo" type="button" class="btn btn-success" data-toggle="modal">Nuevo</button>  
+            </div>
          </div>
       </div>
-   </div>
 
-   <div class="container">
-      <div class="row">
-         <div class="col-lg-12";
-}">
-            <div class="table-responsive">
-               <table id="tablaUsuarios" class="table table-striped table-bordered shadow-lg mt-4" style="width:100%; text-align: center;">
-                  <thead class="bg-secondary text-white">
-                     <tr>
-                        <th>Id</th>
-                        <th>Usuario</th>
-                        <!-- <th>Clave</th> -->
-                        <th>Rol</th>
-                        <th>Acciones</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <?php
-                        foreach($data as $dat){
-                     ?>
-                     <tr>
-                        <td><?php echo $dat['id'] ?></td>
-                        <td><?php echo $dat['usuario'] ?></td>
-                        <!-- <td>
-                           <?php //echo $dat['password'] ?>
-                        </td> -->
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-12">
+               <div class="table-responsive">
+                  <table id="tablaUsuarios" class="table table-striped table-bordered shadow-lg mt-4" style="width:100%; text-align: center;">
+                     <thead class="bg-secondary text-white">
+                        <tr>
+                           <th>Id</th>
+                           <th>Usuario</th>
+                           <!-- <th>Clave</th> -->
+                           <th>Rol</th>
+                           <th>Acciones</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <?php
+                           foreach($data as $dat){
+                        ?>
+                        <tr>
+                           <td><?php echo $dat['id'] ?></td>
+                           <td><?php echo $dat['usuario'] ?></td>
+                           <!-- <td>
+                              <?php //echo $dat['password'] ?>
+                           </td> -->
 
-                        <?php 
-                           if($dat['idRol'] == 1){
-                                 echo "<td>Administrador</td>";
-                           }else{
-                                 echo "<td>Colaborador</td>";
+                           <?php 
+                              if($dat['idRol'] == 1){
+                                    echo "<td>Administrador</td>";
+                              }else{
+                                    echo "<td>Colaborador</td>";
+                              }
+                           ?>
+                           <!------- acciones editar/eliminar ------->
+                           <td>
+                              
+                           </td>
+
+                        </tr>
+                        <?php
                            }
                         ?>
-                        <!------- acciones editar/eliminar ------->
-                        <td>
-                           
-                        </td>
+                     </tbody>
 
-                     </tr>
-                     <?php
-                        }
-                     ?>
-                  </tbody>
-
-               </table>
+                  </table>
+               </div>
             </div>
          </div>
       </div>
    </div>
-
+   <!------------------------ ------- ------------------------>
 
    <!---------------------------------------- Modal ---------------------------------------->
    <div class="modal fade" id="modalCRUD" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -101,7 +120,7 @@
             <form id="formUsuarios">
                <div class="modal-body">
                   <div class="form-group">
-                     <label for="usuario" class="col-form-label">Usuario::</label>
+                     <label for="usuario" class="col-form-label">Usuario:</label>
                      <input type="text" class="form-control" id="usuario" required>
                   </div>
                   <div class="form-group">
@@ -121,6 +140,8 @@
          </div>
       </div>
    </div>
+
+
 
    
    <!-- /////////////////////////////////////////////////////////// -->
