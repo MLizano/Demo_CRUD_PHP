@@ -51,10 +51,14 @@
             Menu
         </div>
 
-        <li class="nav-item">
-            <a class="nav-link" href="usuarios.php">
-            <span>Usuarios</span></a>
-        </li>
+        <?php
+            if($_SESSION["s_idRol"]==1){
+                echo "<li class='nav-item'>
+                    <a class='nav-link' href='usuarios.php'>
+                    <span>Usuarios</span></a>
+                </li>";
+            }
+        ?>
 
         <li class="nav-item">
             <a class="nav-link" href="#">
