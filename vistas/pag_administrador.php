@@ -15,23 +15,15 @@ if ($_SESSION["s_usuario"] === null){
 include_once "top_part.php"
 ?>
 
+
+<!------------------------ content ------------------------>
 <div class="container">
     <div class="row">
-        <div class="col-lg-12">
-        <div class="jumbotron">
-
-          <h1 class="display-4 text-center">¡Bienvenido!</h1>
-
-          <h2 class="text-center">Usuario: <span class="badge badge-success"><?php echo $_SESSION["s_usuario"];?></span></h2>  
-
-          <p class="lead text-center">Esta es la página de inicio, luego de un LOGIN correcto.</p>
-          <hr class="my-4">          
-          <a class="btn btn-danger btn-lg" href="../db/logout.php" role="button">Cerrar Sesión</a>
-
-        </div>
-        </div>
+        
     </div>
 </div>    
+<!------------------------ ------- ------------------------>
+
 
 <?php
 include_once "bottom_part.php"
