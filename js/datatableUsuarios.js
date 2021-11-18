@@ -1,6 +1,6 @@
 
 //da propiedades a la tabla y la declara -------------------------------------
-$(document).ready( function () {
+$(document).ready( function(){
    tablaUsuarios = $("#tablaUsuarios").DataTable({
       "columnDefs":[{
        "targets": -1,
@@ -49,10 +49,13 @@ $(document).ready( function () {
       // idRol = parseInt(fila.find('td:eq(3)').text());
       
       $("#usuario").val(usuario);
-      $("#clave").val(password);
-      $("#rol").val(idRol);
+      $("#password").val(password);
+      $("#idRol").val(idRol);
       opcion = 2; //editar
-      
+
+      var data = [id, usuario, password, idRol, opcion];
+      console.log(data);
+
       $(".modal-header").css("background-color", "#007bff");
       $(".modal-header").css("color", "white");
       $(".modal-tittle").text("Editar Usuario");            
@@ -72,19 +75,20 @@ $(document).ready( function () {
             type: "POST",
             dataType: "json",
             data: {opcion:opcion, id:id},
-            success: function(){
-               tablaUsuarios.row(fila.parents('tr')).remove().draw();
-            }
+            // success: function(){
+            //    tablaUsuarios.row(fila.parents('tr')).remove().draw();
+            // }
          });
-      }   
+         tablaUsuarios.row(fila.parents('tr')).remove().draw();
+      }
    });
 
    //registra al nuevo usuario ---------------------------------------------------
    $("#formUsuarios").submit(function(e){
       e.preventDefault();    
       usuario = $.trim($("#usuario").val());
-      password = $.trim($("#clave").val());
-      idRol = $.trim($("#rol").val());    
+      password = $.trim($("#password").val());
+      idRol = $.trim($("#idRol").val());    
       $.ajax({
          url: "../db/db_usuarios.php",
          type: "POST",

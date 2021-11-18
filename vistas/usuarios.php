@@ -103,12 +103,12 @@
                      <input type="text" class="form-control" id="usuario">
                   </div>
                   <div class="form-group">
-                     <label for="clave" class="col-form-label">Clave:</label>
-                     <input type="text" class="form-control" id="clave">
+                     <label for="password" class="col-form-label">Clave:</label>
+                     <input type="text" class="form-control" id="password">
                   </div>
                   <div class="form-group">
-                     <label for="rol" class="col-form-label">Rol:</label>
-                     <input type="text" class="form-control" id="rol">
+                     <label for="idRol" class="col-form-label">Rol:</label>
+                     <input type="text" class="form-control" id="idRol">
                   </div>
                </div>
                <div class="modal-footer">
