@@ -41,6 +41,7 @@ $(document).ready( function(){
 
    //edita el usuario seleccionado ---------------------------------------------------   
    $(document).on("click", ".btnEditar", function(){
+      
       fila = $(this).closest("tr");
       id = parseInt(fila.find('td:eq(0)').text());
       usuario = fila.find('td:eq(1)').text();
@@ -54,6 +55,7 @@ $(document).ready( function(){
 
       $("#usuario").val(usuario);
       // $("#password").val(password);
+      document.getElementById("password").value = "";
       $("#idRol").val(idRol);
 
       $(".modal-header").css("background-color", "#007bff");

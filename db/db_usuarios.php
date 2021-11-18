@@ -6,8 +6,8 @@ $conexion = $objeto->Conectar();
 
 // Recepción de los datos enviados mediante POST desde el JS
 $usuario = (isset($_POST['usuario'])) ? $_POST['usuario'] : '';
-// $password = (isset($_POST['password'])) ? $_POST['password'] : '';
-$password = (isset($_POST['password']))&& $_POST['password'] != ''? $_POST['password']: null;
+$password = (isset($_POST['password'])) ? $_POST['password'] : '';
+// $password = (isset($_POST['password']))&& $_POST['password'] != ''? $_POST['password']: null;
 $idRol = (isset($_POST['idRol'])) ? $_POST['idRol'] : '';
 $opcion = (isset($_POST['opcion'])) ? $_POST['opcion'] : '';
 $id = (isset($_POST['id'])) ? $_POST['id'] : '';
@@ -27,13 +27,19 @@ switch($opcion){
 
    //modificación ---------------------------------------------------
    case 2:
+      
       if($idRol == 'Administrador' || $idRol == 1){
          $rol = 1;
       }else if($idRol == 'Colaborador' || $idRol == 2){
          $rol = 2;
       }
 
-      $consulta = "UPDATE usuarios SET usuario='$usuario', password='$password', idRol='$rol'  WHERE id='$id' ";
+      if($password == ''){
+         $consulta = "UPDATE usuarios SET usuario='$usuario', idRol='$rol'  WHERE id='$id' ";
+      }else{
+         $consulta = "UPDATE usuarios SET usuario='$usuario', password='$password', idRol='$rol'  WHERE id='$id' ";
+      }
+
       $resultado = $conexion->prepare($consulta);
       $resultado->execute();
       
