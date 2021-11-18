@@ -44,15 +44,16 @@ $(document).ready( function(){
       fila = $(this).closest("tr");
       id = parseInt(fila.find('td:eq(0)').text());
       usuario = fila.find('td:eq(1)').text();
-      password = fila.find('td:eq(2)').text();
-      idRol = fila.find('td:eq(3)').text();
+      // password = fila.find('td:eq(2)').text();
+      idRol = fila.find('td:eq(2)').text();
       opcion = 2; //editar
 
+      //para validar que los datos sean correctos / solo para asuntos de la practica
       var data = [id, usuario, password, idRol, opcion];
       console.log(data);
 
       $("#usuario").val(usuario);
-      $("#password").val(password);
+      // $("#password").val(password);
       $("#idRol").val(idRol);
 
       $(".modal-header").css("background-color", "#007bff");
@@ -93,7 +94,9 @@ $(document).ready( function(){
          type: "POST",
          dataType: "json",
          data: {id:id, usuario:usuario, password:password, idRol:idRol, opcion:opcion},
-         success: function(data){  
+         success: function(data){
+            
+            //para validar que los datos sean correctos / solo para asuntos de la practica
             console.log(data);
             id = data[0].id;            
             usuario = data[0].usuario;
@@ -107,9 +110,9 @@ $(document).ready( function(){
             }
             
             if(opcion == 1){
-               tablaUsuarios.row.add([id,usuario,password,rol]).draw();
+               tablaUsuarios.row.add([id,usuario,rol]).draw();
             }else{
-               tablaUsuarios.row(fila).data([id,usuario,password,rol]).draw();
+               tablaUsuarios.row(fila).data([id,usuario,rol]).draw();
             }
          }        
       });

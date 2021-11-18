@@ -6,7 +6,8 @@ $conexion = $objeto->Conectar();
 
 // Recepción de los datos enviados mediante POST desde el JS
 $usuario = (isset($_POST['usuario'])) ? $_POST['usuario'] : '';
-$password = (isset($_POST['password'])) ? $_POST['password'] : '';
+// $password = (isset($_POST['password'])) ? $_POST['password'] : '';
+$password = (isset($_POST['password']))&& $_POST['password'] != ''? $_POST['password']: null;
 $idRol = (isset($_POST['idRol'])) ? $_POST['idRol'] : '';
 $opcion = (isset($_POST['opcion'])) ? $_POST['opcion'] : '';
 $id = (isset($_POST['id'])) ? $_POST['id'] : '';

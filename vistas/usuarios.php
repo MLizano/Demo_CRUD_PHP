@@ -47,7 +47,7 @@
                      <tr>
                         <th>Id</th>
                         <th>Usuario</th>
-                        <th>Clave</th>
+                        <!-- <th>Clave</th> -->
                         <th>Rol</th>
                         <th>Acciones</th>
                      </tr>
@@ -59,7 +59,9 @@
                      <tr>
                         <td><?php echo $dat['id'] ?></td>
                         <td><?php echo $dat['usuario'] ?></td>
-                        <td><?php echo $dat['password'] ?></td>
+                        <!-- <td>
+                           <?php //echo $dat['password'] ?>
+                        </td> -->
 
                         <?php 
                            if($dat['idRol'] == 1){
@@ -100,15 +102,15 @@
                <div class="modal-body">
                   <div class="form-group">
                      <label for="usuario" class="col-form-label">Usuario::</label>
-                     <input type="text" class="form-control" id="usuario">
+                     <input type="text" class="form-control" id="usuario" required>
                   </div>
                   <div class="form-group">
                      <label for="password" class="col-form-label">Clave:</label>
-                     <input type="text" class="form-control" id="password">
+                     <input type="password" class="form-control" id="password" required>
                   </div>
                   <div class="form-group">
                      <label for="idRol" class="col-form-label">Rol:</label>
-                     <input type="text" class="form-control" id="idRol">
+                     <input type="text" class="form-control" id="idRol" required>
                   </div>
                </div>
                <div class="modal-footer">
