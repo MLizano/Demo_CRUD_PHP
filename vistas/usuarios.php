@@ -32,7 +32,7 @@
    <div class="container">
       <div class="row">
          <div class="col-lg-12" style="padding-bottom: 30px">
-            <button id="btnNuevo" type="button" class="btn btn-success nuevo" data-toggle="modal"> Nuevo </button>
+            <button id="btnNuevo" type="button" class="btn btn-success" data-toggle="modal">Nuevo</button>  
          </div>
       </div>
    </div>
@@ -47,7 +47,7 @@
                      <tr>
                         <th>Id</th>
                         <th>Usuario</th>
-                        <th hidden>Clave</th>
+                        <th>Clave</th>
                         <th>Rol</th>
                         <th>Acciones</th>
                      </tr>
@@ -59,12 +59,12 @@
                      <tr>
                         <td><?php echo $dat['id'] ?></td>
                         <td><?php echo $dat['usuario'] ?></td>
-                        <td hidden><?php echo $dat['password'] ?></td>
+                        <td><?php echo $dat['password'] ?></td>
 
                         <?php 
                            if($dat['idRol'] == 1){
                                  echo "<td>Administrador</td>";
-                           }else if($dat['idRol'] == 2){
+                           }else{
                                  echo "<td>Colaborador</td>";
                            }
                         ?>
@@ -91,7 +91,7 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
          <div class="modal-content">
             <div class="modal-header">
-               <h5 class="modal-tittle" id="exampleModalLabel"></h5>
+               <h5 class="modal-tittle center" id="exampleModalLabel"></h5>
                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                </button>
@@ -112,7 +112,7 @@
                   </div>
                </div>
                <div class="modal-footer">
-                  <button type="button" class="btn btn-light" data-dismiss="modal" data-toggle="modal">Cancelar</button>
+                  <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
                   <button type="submit" id="btnGuardar" class="btn btn-dark">Guardar</button>
                </div>
             </form>
@@ -123,9 +123,10 @@
    
    <!-- /////////////////////////////////////////////////////////// -->
    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+   <script src="https://unpkg.com/@popperjs/core@2"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
    <script src="../js/datatableUsuarios.js"></script>
    
 </body>

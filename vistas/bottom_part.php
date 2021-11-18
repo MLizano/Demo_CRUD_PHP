@@ -37,7 +37,9 @@
    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 
    <script src="../vendor/plugins/sweetalert2.all.min.js"></script>
-   <script src="../js/codigo.js"></script>   
+   <script src="../js/codigo.js"></script>
+   
+   
    </body>
 
    </html>
