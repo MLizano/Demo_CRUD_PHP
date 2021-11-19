@@ -130,6 +130,10 @@ include_once "top_part.php"
                   <div class="form-group">
                      <label for="idRol" class="col-form-label">Rol:</label>
                      <input type="text" class="form-control" id="idRol" required>
+                     <!-- <select id="estado" class="label_ancho" style="background: black;" disabled>
+                           <option value="1"> <b>Aprobada</b> </option>
+                           <option value="2"> <b>Rechazada</b> </option>
+                     </select> -->
                   </div>
                </div>
                <div class="modal-footer">
